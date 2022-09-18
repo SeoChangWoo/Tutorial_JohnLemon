@@ -865,11 +865,11 @@ PlayerSettings:
     m_VersionName: 
   apiCompatibilityLevel: 6
   activeInputHandler: 0
-  cloudProjectId: 
+  cloudProjectId: 3e8a9cf5-423d-4736-b223-fb69af63d710
   framebufferDepthMemorylessMode: 0
   qualitySettingsNames: []
-  projectName: 
-  organizationId: 
+  projectName: 3D Beginner
+  organizationId: cwloveu12
   cloudEnabled: 0
   legacyClampBlendShapeWeights: 1
   playerDataPath: 
