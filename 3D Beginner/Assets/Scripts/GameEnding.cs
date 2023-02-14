@@ -14,6 +14,10 @@ public class GameEnding : MonoBehaviour
     public CanvasGroup caughtBackground;
     public bool isPlayerCaught;
 
+    public AudioSource exitAudio;
+    public AudioSource caughtAudio;
+    private bool isAudioPlay;
+
 
     private void OnTriggerEnter(Collider other)
     {
@@ -32,16 +36,21 @@ public class GameEnding : MonoBehaviour
     {
         if(isPlayerAtExit == true)
         {
-            EndLevel(exitBackground, false);
+            EndLevel(exitBackground, false, exitAudio);
         }
         else if(isPlayerCaught == true)
         {
-            EndLevel(caughtBackground, true);
+            EndLevel(caughtBackground, true, caughtAudio);
         }
     }
 
-    void EndLevel(CanvasGroup imageCanvasGroup, bool doRestart) // 출구에 도착했을 때 어떤 동작을 할지를 정의한 함수
+    void EndLevel(CanvasGroup imageCanvasGroup, bool doRestart, AudioSource audiosource) // 출구에 도착했을 때 어떤 동작을 할지를 정의한 함수
     {
+        if(isAudioPlay == false)
+        {
+            audiosource.Play();
+            isAudioPlay = true;
+        }
         timer = timer + Time.deltaTime;
         imageCanvasGroup.alpha = timer / fadeDuration;
         if(timer > fadeDuration + 3f)
